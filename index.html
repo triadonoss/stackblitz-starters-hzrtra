@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Static Web App</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <h1>Start Picking</h1>
+      <div id="menu">
+        <button onclick="showMenu('truckMenu')">
+          1) Pick pallet via Turret Truck
+        </button>
+        <button onclick="showMenu('truckMenu')">
+          2) Pick pallet via Reach Truck or Fork Lift
+        </button>
+        <button onclick="showMenu('pickerMenu')">
+          3) Pick cartons via Order Picker
+        </button>
+      </div>
+
+      <div id="truckMenu" class="hidden">
+        <p>Go to location 01015 and pickup pallet 123</p>
+        <button onclick="showMenu('dropMenu')">1) Picked up</button>
+        <button onclick="showMenu('menu')">2) Return to previous menu</button>
+      </div>
+
+      <div id="dropMenu" class="hidden">
+        <p>Go to location 01 buffer and drop the pallet</p>
+        <button onclick="showMenu('pickupMenu')">1) Dropped Pallet</button>
+        <button onclick="showMenu('truckMenu')">
+          2) Return to previous menu
+        </button>
+      </div>
+
+      <div id="pickupMenu" class="hidden">
+        <p>Go to location REC01 and pickup pallet 124</p>
+        <button onclick="showMenu('decisionMenu')">1) Picked up</button>
+        <button onclick="showMenu('menu')">2) Return to main menu</button>
+      </div>
+
+      <div id="decisionMenu" class="hidden">
+        <p>Condition System Decision</p>
+        <button onclick="showMenu('reworkMenu')">1) Does require rework</button>
+        <button onclick="showMenu('menu')">2) Does not require rework</button>
+      </div>
+
+      <div id="reworkMenu" class="hidden">
+        <p>Go to rework location and drop pallet</p>
+        <button onclick="showMenu('menu')">1) Dropped Pallet</button>
+        <button onclick="showMenu('decisionMenu')">
+          2) Return to previous menu
+        </button>
+      </div>
+    </div>
+
+    <script src="/scripts.js"></script>
+  </body>
+</html>
