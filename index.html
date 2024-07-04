@@ -3,62 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Static Web App</title>
+    <title>Warehouse Picking System</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Warehouse Picking System</h1>
-        <nav>
-            <ul>
-                <li><button onclick="showMenu('menu')">Start Picking by choosing one of the options</button></li>
-                <li><button onclick="showMenu('truckMenu')">Go to location 01015 and pickup pallet 123</button></li>
-                <li><button onclick="showMenu('dropMenu')">Go to location 01 buffer and drop the pallet</button></li>
-                <li><button onclick="showMenu('pickupMenu')">Go to location REC01 and pickup pallet 124</button></li>
-                <li><button onclick="showMenu('decisionMenu')">Condition System Decision</button></li>
-                <li><button onclick="showMenu('reworkMenu')">Go to rework location and drop pallet</button></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <div id="app">
-        <div id="menu">
-            <button onclick="showMenu('truckMenu')">1) Pick pallet via Turret Truck</button>
-            <button onclick="showMenu('truckMenu')">2) Pick pallet via Reach Truck or Fork Lift</button>
-            <button onclick="showMenu('pickerMenu')">3) Pick cartons via Order Picker</button>
+    <div class="container">
+        <div id="starting-point" class="step">Starting Point</div>
+        <div class="options">
+            <button onclick="selectOption('Turret Truck')">Turret Truck</button>
+            <button onclick="selectOption('Fork Lift')">Fork Lift</button>
+            <button onclick="selectOption('Order Picker')">Order Picker</button>
         </div>
-        
-        <div id="truckMenu" class="hidden">
-            <p>Go to location 01015 and pickup pallet 123</p>
-            <button onclick="showMenu('dropMenu')">1) Picked up</button>
-            <button onclick="showMenu('menu')">2) Return to previous menu</button>
+        <div id="locations-pallet" class="step hidden">Pickup: Locations & Pallet #</div>
+        <div id="require-rework" class="step hidden">Require Rework?</div>
+        <div class="rework-options hidden">
+            <button onclick="rework('YES')">YES</button>
+            <button onclick="rework('NO')">NO</button>
         </div>
-
-        <div id="dropMenu" class="hidden">
-            <p>Go to location 01 buffer and drop the pallet</p>
-            <button onclick="showMenu('pickupMenu')">1) Dropped Pallet</button>
-            <button onclick="showMenu('truckMenu')">2) Return to previous menu</button>
-        </div>
-
-        <div id="pickupMenu" class="hidden">
-            <p>Go to location REC01 and pickup pallet 124</p>
-            <button onclick="showMenu('decisionMenu')">1) Picked up</button>
-            <button onclick="showMenu('menu')">2) Return to main menu</button>
-        </div>
-
-        <div id="decisionMenu" class="hidden">
-            <p>Condition System Decision</p>
-            <button onclick="showMenu('reworkMenu')">1) Does require rework</button>
-            <button onclick="showMenu('menu')">2) Does not require rework</button>
-        </div>
-
-        <div id="reworkMenu" class="hidden">
-            <p>Go to rework location and drop pallet</p>
-            <button onclick="showMenu('menu')">1) Dropped Pallet</button>
-            <button onclick="showMenu('decisionMenu')">2) Return to previous menu</button>
-        </div>
+        <div id="locations-drop" class="step hidden">Drop: Locations</div>
+        <div id="flow-completed" class="step hidden">Flow Completed</div>
     </div>
-
-    <script src="script.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
