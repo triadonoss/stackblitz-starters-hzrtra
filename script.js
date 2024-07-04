@@ -4,8 +4,12 @@ function selectOption(option) {
   document.getElementById('locations-pallet').classList.remove('hidden');
   setTimeout(() => {
       document.getElementById('locations-pallet').classList.add('hidden');
-      document.getElementById('require-rework').classList.remove('hidden');
-      document.querySelector('.rework-options').classList.remove('hidden');
+      document.getElementById('locations-drop').classList.remove('hidden');
+      setTimeout(() => {
+          document.getElementById('locations-drop').classList.add('hidden');
+          document.getElementById('require-rework').classList.remove('hidden');
+          document.querySelector('.rework-options').classList.remove('hidden');
+      }, 2000);
   }, 2000);
 }
 
@@ -18,11 +22,7 @@ function rework(option) {
       document.getElementById('starting-point').scrollIntoView();
       document.querySelector('.options').classList.remove('hidden');
   } else {
-      document.getElementById('locations-drop').classList.remove('hidden');
-      setTimeout(() => {
-          document.getElementById('locations-drop').classList.add('hidden');
-          document.getElementById('flow-completed').classList.remove('hidden');
-          alert('Flow Completed');
-      }, 2000);
+      document.getElementById('flow-completed').classList.remove('hidden');
+      alert('Flow Completed');
   }
 }
