@@ -1,7 +1,7 @@
 body {
   font-family: Arial, sans-serif;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   height: 100vh;
   background-color: #f4f4f9;
@@ -10,6 +10,7 @@ body {
 
 .container {
   text-align: center;
+  margin-top: 50px;
 }
 
 .step {
@@ -42,4 +43,46 @@ button {
 
 button:hover {
   background-color: #0056b3;
+}
+
+input {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  width: 180px;
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.flow-container {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flow-step {
+  margin: 0 10px;
+  padding: 10px 20px;
+  background-color: #e0e0e0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.flow-step.active {
+  background-color: #007bff;
+  color: #fff;
 }

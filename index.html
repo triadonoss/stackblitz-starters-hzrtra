@@ -14,8 +14,23 @@
             <button onclick="selectOption('Fork Lift')">Fork Lift</button>
             <button onclick="selectOption('Order Picker')">Order Picker</button>
         </div>
-        <div id="locations-pallet" class="step hidden">Find: Locations & Pallet #</div>
-        <div id="locations-drop" class="step hidden">Drop: Locations</div>
+        <div id="locations-pallet" class="step hidden">
+            Find: Locations & Pallet #
+            <input type="text" id="location-number" placeholder="Enter Location Number">
+            <input type="text" id="pallet-number" placeholder="Enter Pallet Number">
+            <button onclick="lookupLocation()">Lookup</button>
+        </div>
+        <div id="loader" class="loader hidden"></div>
+        <div id="locations-drop" class="step hidden">
+            Drop: Locations
+            <input type="text" id="drop-location-number" placeholder="Enter Drop Location Number">
+            <input type="text" id="drop-pallet-number" placeholder="Enter Drop Pallet Number">
+            <button onclick="lookupDropLocation()">Lookup</button>
+        </div>
+        <div id="drop-button-container" class="hidden">
+            <button onclick="dropPallet()">Drop Pallet</button>
+        </div>
+        <div id="drop-success" class="hidden">Drop Successful</div>
         <div id="require-rework" class="step hidden">Require Rework?</div>
         <div class="rework-options hidden">
             <button onclick="rework('YES')">YES</button>
@@ -23,6 +38,15 @@
         </div>
         <div id="flow-completed" class="step hidden">Flow Completed</div>
     </div>
+    
+    <div class="flow-container">
+        <div id="flow-starting-point" class="flow-step active">Starting Point</div>
+        <div id="flow-locations-pallet" class="flow-step">Find Locations & Pallet #</div>
+        <div id="flow-locations-drop" class="flow-step">Drop Locations</div>
+        <div id="flow-require-rework" class="flow-step">Require Rework?</div>
+        <div id="flow-completed" class="flow-step">Flow Completed</div>
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>
